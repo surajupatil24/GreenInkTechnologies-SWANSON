@@ -1,0 +1,98 @@
+doctype html
+html
+  head
+    title Green Ink Technologies/Home
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // ===============================================================================================
+    link(rel='icon', type='image/png', href='images/icons/favicon01.ico')
+    // ===============================================================================================
+    link(href='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', rel='stylesheet')
+    script(src='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    link(rel="stylesheet", href="stylesheets/labelPrint.css")
+    
+.container.contact
+  .row
+    .col-md-3
+      a(href="#")
+      img(src="images/SP1.png", alt="" style="max-width: 100%;height: auto;") 
+      .contact-info   
+        h2 Label Print
+       
+    .col-md-9
+     form(action='generatepdf' method='POST')
+      .row
+       
+          .col-md-4
+            .form-group
+              label.control-label(for='fname') Name:
+              br
+              select.option(name='subject')
+                option(disabled='disabled', selected='selected') FG BIG LABEL
+                option FG SMALL LABEL
+                option FG BOTH LABEL
+          .col-md-4
+            .form-group
+              label.control-label(for='fname') IRMS/GCAS:            
+              input.firstname(type='text', name='material', id="material")
+          .col-md-4
+            .form-group
+              label.control-label(for='lname') LOT No:
+              input.lastname(type='text', name='batch', id="batch")
+          .col-md-4
+            .form-group
+              label.control-label(for='email') PO Number:          
+              input.firstname(type='text', name='PO', id="PO")
+          .col-md-4
+            .form-group
+              label.control-label(for='email') Quantity:          
+              input.lastname(type='text', name='quantity', id="quantity")     
+          .col-md-4
+            .form-group
+              label.control-label(for='email') Production Date:          
+              input.company(type='date', name='prdDate',  id="prdDate")
+          .col-md-4
+            .form-group
+              label.control-label(for='email') Height:          
+              input.firstname1(type='text', name='quantity1', id="quantity1")   
+          .col-md-4
+            .form-group
+              label.control-label(for='email') Gross Weight:          
+              input.firstname2(type='text', name='quantity2', id="quantity2") 
+          .col-md-4
+            .form-group
+              label.control-label(for='email') Net Weight:          
+              input.lastname2(type='text', name='quantity3', id="quantity3")
+          .col-md-4
+            .form-group
+              label.control-label(for='email') Rolls Blocks:
+              input.lastname1(type='text', name='quantity4', id="quantity4")    
+          .col-md-4
+            .form-group
+              label.control-label(for='email') Splices:
+              input.firstname3(type='text', name='quantity5', id="quantity5")
+          .col-md-4
+            .form-group
+              label.control-label(for='email') Pallet No:
+              input.firstname3(type='text', name='quantity6', id="quantity6")    
+          
+      .sidebar
+          .icon1
+            a(href='go')              
+              img(src='https://img.icons8.com/carbon-copy/100/000000/print.png' style="width: 86px;margin-left: -14px; margin-top: 50px")
+          .icon2    
+            a(href="GoodsReceive")
+              img(src='https://img.icons8.com/dotty/100/000000/delivery.png' style="width: 68px;margin-left: -8px; margin-top: 50px")
+          .icon3    
+            a(href="Support")             
+              img(src='https://img.icons8.com/carbon-copy/100/000000/online-support--v1.png' alt="Support" style="width: 86px;margin-left: -18px; margin-top: 50px")
+
+
+      .form-group.col-md-12.row
+            .col-sm-offset-2.col-md-6
+              button.btn.btn-success.btn-md(type='submit') Submit
+            //.col-md-6
+              a(href="Support")
+                img(src='https://img.icons8.com/carbon-copy/100/000000/online-support--v1.png' style="width:72px; height:70px;margin-left: 285px;margin-top: -12px;")    
+           

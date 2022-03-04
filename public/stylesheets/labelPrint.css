@@ -1,0 +1,90 @@
+body{
+    background: rgba(93,84,240,0.5);
+    background: -webkit-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));
+    background: -o-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));
+    background: -moz-linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));
+    background: linear-gradient(left, rgba(0,168,255,0.5), rgba(185,0,255,0.5));
+}
+.contact{
+    padding: 4%;
+    height: 400px;
+}
+.col-md-3{
+    background: #ff9b00;
+    padding: 4%;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+.contact-info{
+    margin-top:10%;
+}
+.contact-info img{
+    margin-bottom: 15%;
+}
+.contact-info h2{
+    margin-bottom: 10%;
+}
+.col-md-9{
+    background: #fff;
+    padding: 3%;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+.contact-form label{
+    font-weight:600;
+}
+.contact-form button{
+    background: #25274d;
+    color: #fff;
+    font-weight: 600;
+    width: 25%;
+}
+.contact-form button:focus{
+    box-shadow:none;
+}
+
+.sidebar {
+    height: 100%;
+    width: 82px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(127, 170, 234);
+    overflow-x: hidden;
+    padding-top: 16px;
+}
+  
+.sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+}
+  
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+  
+.main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    padding: 0px 10px;
+}
+  
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+}
+
+
+
+.logo1 {
+    position: relative;  
+    left: -500px;
+    top: -300px;  
+    width: 300px;
+    height: 100px;
+    padding: 10px 0px 10px 0px;
+    border-radius: 15px 15px 0px 0px;
+    }
