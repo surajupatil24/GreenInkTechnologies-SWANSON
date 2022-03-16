@@ -83,11 +83,11 @@ router.post('/generatepdf', function (req, res, next) {
 		const dataFormated = filtered[0];
 
 		const row1Text = `(91) ${dataFormated.IRMSGCAS}(37)${quantity}`;
-		const row2Text = `(10)SHFL${batch}~(90)NONE`;
+		const row2Text = `(10)AHNL${batch}~(90)NONE`;
 		const row3Text = `(00) 1 1534145 40011${quantity6} 9`;
 
 		GenerateBarCodeForNumber(`91${dataFormated.IRMSGCAS}37${quantity}`).then(image1=>{
-			GenerateBarCodeForNumber(`10SHFL${batch}90`).then(image2=>{
+			GenerateBarCodeForNumber(`10AHNL${batch}90`).then(image2=>{
 				GenerateBarCodeForNumber(`001153414540011${quantity6}9`).then(image3=>{
 					
 					dataFormated.lotNumber = batch;
