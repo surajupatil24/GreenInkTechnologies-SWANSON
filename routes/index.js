@@ -203,13 +203,12 @@ function formatPDFWithData(data) {
 					body: [
 						[
 							[
-								{ text: data.Suppliername, style: 'subheader', align: 'right' },
-								{ text: data.Supplierlocation, style: 'subheader', margin: [35, 0, 10, 0] }
+								{ text: data.Suppliername, style: 'subheader_title', align: 'right' },{ text: data.Supplierlocation, style: 'subheader', margin: [35, 0, 10, 0] }
 							],
 							[
-								{ text: `    Supplier Product: ${data.Supplierproduct}`, style: 'subheader', margin: [25, 0, 10, 0] },
-								{ text: `IRMS GCAS: ${data.IRMSGCAS}`, style: 'subheader', margin: [25, 0, 10, 0] },
-								{ text: `Prod Date: ${data.prdDate}`, style: 'subheader', margin: [25, 0, 10, 0] }
+								{ text: `Supplier Product: ${data.Supplierproduct}`, style: 'subheader', margin: [15, 0, 10, 0] },
+								{ text: `IRMS GCAS: ${data.IRMSGCAS}`, style: 'subheader', margin: [15, 0, 10, 0] },
+								{ text: `Prod Date: ${data.prdDate}`, style: 'subheader', margin: [15, 0, 10, 0] }
 							]
 						],
 						[
@@ -225,38 +224,53 @@ function formatPDFWithData(data) {
 							
 						],
 
-						[
-							[
-								{ text: `ROLL Dia(MM):      ROLLS(BLK)(MM):   ${data.ROLLDIAMETER}               				   ${data.quantity4} `, style: 'subheader' },
-							],
-							[
-								{ text:`SPLICES:          BASIS WEIGHT(GSM):           ${data.quantity5}                   				   ${data.BASISWEIGHT} `, style: 'subheader' },
-							],
+						//[
+							//[
+								//{ text: `ROLL Dia(MM):      ROLLS(BLK)(MM):   ${data.ROLLDIAMETER}               				   ${data.quantity4} `, style: 'subheader' },
+							//],
+							//[
+								//{ text:`SPLICES:          BASIS WEIGHT(GSM):           ${data.quantity5}                   				   ${data.BASISWEIGHT} `, style: 'subheader' },
+							//],
 							
-						],
+						//],
 
 						[
 							[
 								{ text: `IRMS GCAS#: ${data.IRMSGCAS}`, style: 'subheader' },
 							],
+							//[
+							//	{ text: `QUANTITY: ${data.quantity} ${data.manROLLSBLOCKS}`, style: 'subheader' },
+							//]
 							[
-								{ text: `QUANTITY: ${data.quantity} ${data.manROLLSBLOCKS}`, style: 'subheader' },
+								{ text: `LOT#: AHNL${data.lotNumber}`, style: 'subheader' },
+							],
+						],
+						//[
+						//	[
+						//		{ text: `LOT#: AHNL${data.lotNumber}`, style: 'subheader' },
+						//	],
+						//	[
+						//		{ text: `PO: ${data.PO}`, style: 'subheader' },
+						//	]
+						//],
+						[
+							
+							[
+								{ text:`QUANTITY:    	   ${data.quantity} `, style: 'subheader' },
+							],
+							[
+								{ text: `Number_of_Slits: ${data.quantity4}`, style: 'subheader' },
 							]
 						],
 						[
+							//[
+							//	{ text: `CUSTOMER REF.: `, style: 'subheader' },
+							//],
 							[
-								{ text: `LOT#: SHFL${data.lotNumber}`, style: 'subheader' },
+								{ text:`BASIS WEIGHT:    	   ${data.PO} `, style: 'subheader' },
 							],
 							[
-								{ text: `PO: ${data.PO}`, style: 'subheader' },
-							]
-						],
-						[
-							[
-								{ text: `CUSTOMER REF.: `, style: 'subheader' },
-							],
-							[
-								{ text: `PALLETS / BUNDLE : ${data.quantity6}`, style: 'subheader' },
+								{ text: `PALLETS CONTANINTER : ${data.quantity6}`, style: 'subheader' },
 							]
 						],
 						[
@@ -287,6 +301,11 @@ function formatPDFWithData(data) {
 				fontSize: 14,
 				bold: true,
 				margin: [0, 0, 0, 10]
+			},
+			subheader_title: {
+				fontSize: 10,
+				bold: true,
+				margin: [5, 10, 0, 5]
 			},
 			subheader: {
 				fontSize: 12,
