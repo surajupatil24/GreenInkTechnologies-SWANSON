@@ -256,7 +256,7 @@ function formatPDFWithData(data) {
 						[
 							
 							[
-								{ text:`QUANTITY (KG):    	   ${data.quantity} `, style: 'subheader' },
+								{ text:`QUANTITY (M2):    	   ${data.quantity} `, style: 'subheader' },
 							],
 							[
 								{ text: `Number_of_Slits: ${data.quantity4}`, style: 'subheader' },
