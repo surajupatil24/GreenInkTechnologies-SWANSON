@@ -256,7 +256,7 @@ function formatPDFWithData(data) {
 						[
 							
 							[
-								{ text:`QUANTITY:    	   ${data.quantity} `, style: 'subheader' },
+								{ text:`QUANTITY (KG):    	   ${data.quantity} `, style: 'subheader' },
 							],
 							[
 								{ text: `Number_of_Slits: ${data.quantity4}`, style: 'subheader' },
@@ -267,7 +267,7 @@ function formatPDFWithData(data) {
 							//	{ text: `CUSTOMER REF.: `, style: 'subheader' },
 							//],
 							[
-								{ text:`BASIS WEIGHT:    	   ${data.PO} `, style: 'subheader' },
+								{ text:`BASIS WEIGHT (GSM):    	   ${data.PO} `, style: 'subheader' },
 							],
 							[
 								{ text: `PALLET TYPE : ${data.quantity6}`, style: 'subheader' },
