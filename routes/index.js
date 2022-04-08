@@ -104,7 +104,7 @@ router.post('/generatepdf', function (req, res, next) {
 	var workbook = XLSX.readFile(__dirname + '/Plant_001_masterdata.xlsx');
 	//var workbook = XLSX.readFile(__dirname + '/My First Project-087f0a546d01.json');
 	var sheet_name_list = workbook.SheetNames;
-var  rcCheck = "001153414540011"+ quantity4;
+var  rcCheck = "0011534145"+ quantity4;
 	const arrayOfDigits = Array.from(rcCheck, Number);
 
 
@@ -146,11 +146,11 @@ var odd = 0;
 
 		const row1Text = `(91) ${dataFormated.IRMSGCAS}(37)${quantity}`;
 		const row2Text = `(10)AHNL${batch}~(90)${quantity6}`;
-		const row3Text = `(00) 1 1534145 40011${quantity4} ${step5}`;
+		const row3Text = `(00) 1 1534145 ${quantity4} ${step5}`;
 
 		GenerateBarCodeForNumber(`91${dataFormated.IRMSGCAS}37${quantity}`).then(image1=>{
 			GenerateBarCodeForNumber(`10AHNL${batch}90${quantity6}`).then(image2=>{
-				GenerateBarCodeForNumber(`001153414540011${quantity4}${step5}`).then(image3=>{
+				GenerateBarCodeForNumber(`0011534145${quantity4}${step5}`).then(image3=>{
 					
 					dataFormated.lotNumber = batch;
 					dataFormated.prdDate = prdDate;
@@ -321,7 +321,7 @@ function formatPDFWithData(data) {
 								{ text:`QUANTITY (M2):    	   ${data.quantity} `, style: 'subheader' },
 							],
 							[
-								{ text: `Number_of_Slits: ${data.quantity4}`, style: 'subheader' },
+								{ text: `Sequence Number: ${data.quantity4}`, style: 'subheader' },
 							]
 						],
 						[
