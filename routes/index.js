@@ -53,6 +53,39 @@ router.post('/getcodes', function (req, res, next) {
 	res.render("QRCodes", { title: 'list', matertialList: doc });
 });
 
+/////////////////////////////////////////// Today changes 05/apr /////////////////////////////////////////////////
+
+function EvenOddSum(arr, n)
+{
+	let even = 0;
+	let odd = 0;
+	for (let i = 0; i < n; i++)
+	{
+		if (i % 2 == 0)
+			even += arr[i];
+		else
+			odd += arr[i];
+	}
+    radix = 10;
+    step1 = even*3;
+    step2 = step1+odd;
+    //rem = step2 % 10;
+    step3= step2 % radix
+    step4 = (radix - step3)
+ 
+		if (step4 == 10)
+			step5 = 0;
+		else
+			step5 = step4;
+	
+    
+	//document.write("check Digit is " + step5);
+}
+
+// Driver function
+	
+
+////////////////////////////////////////////////////////////today changes 05/apr ////////////////////////////////////////// 
 
 router.post('/generatepdf', function (req, res, next) {
 	const material = req.body.material;
@@ -71,6 +104,35 @@ router.post('/generatepdf', function (req, res, next) {
 	var workbook = XLSX.readFile(__dirname + '/Plant_001_masterdata.xlsx');
 	//var workbook = XLSX.readFile(__dirname + '/My First Project-087f0a546d01.json');
 	var sheet_name_list = workbook.SheetNames;
+var  rcCheck = "0011534145"+ quantity4;
+	const arrayOfDigits = Array.from(rcCheck, Number);
+
+
+	//var arr = new Array (0, 0, 1, 1, 5, 3, 4, 1, 4, 5, 4, 0, 0, 1, 1) + ',' + arrayOfDigits;
+	let count = arrayOfDigits.length;
+	
+var even = 0;
+var odd = 0;
+	for (let i = 0; i < count; i++)
+	{
+		if (i % 2 == 0)
+			even += arrayOfDigits[i];
+		else
+			odd += arrayOfDigits[i];
+	}
+    radix = 10;
+    step1 = even*3; 
+    step2 = step1+odd;
+    //rem = step2 % 10;
+    step3= step2 % radix
+    step4 = (radix - step3)
+ 
+		if (step4 == 10)
+			step5 = 0;
+		else
+			step5 = step4;
+	
+
 
 	var doc = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
 
@@ -83,12 +145,12 @@ router.post('/generatepdf', function (req, res, next) {
 		const dataFormated = filtered[0];
 
 		const row1Text = `(91) ${dataFormated.IRMSGCAS}(37)${quantity}`;
-		const row2Text = `(10)AHNL${batch}~(90)NONE`;
-		const row3Text = `(00) 1 1534145 40011${quantity6} 9`;
+		const row2Text = `(10)AHNL${batch}~(90)${quantity6}`;
+		const row3Text = `(00) 1 1534145 ${quantity4} ${step5}`;
 
 		GenerateBarCodeForNumber(`91${dataFormated.IRMSGCAS}37${quantity}`).then(image1=>{
-			GenerateBarCodeForNumber(`10AHNL${batch}90`).then(image2=>{
-				GenerateBarCodeForNumber(`001153414540011${quantity6}9`).then(image3=>{
+			GenerateBarCodeForNumber(`10AHNL${batch}90${quantity6}`).then(image2=>{
+				GenerateBarCodeForNumber(`0011534145${quantity4}${step5}`).then(image3=>{
 					
 					dataFormated.lotNumber = batch;
 					dataFormated.prdDate = prdDate;
@@ -203,13 +265,12 @@ function formatPDFWithData(data) {
 					body: [
 						[
 							[
-								{ text: data.Suppliername, style: 'subheader', align: 'right' },
-								{ text: data.Supplierlocation, style: 'subheader', margin: [35, 0, 10, 0] }
+								{ text: data.Suppliername, style: 'subheader_title', align: 'right' },{ text: data.Supplierlocation, style: 'subheader', margin: [35, 0, 10, 0] }
 							],
 							[
-								{ text: `    Supplier Product: ${data.Supplierproduct}`, style: 'subheader', margin: [25, 0, 10, 0] },
-								{ text: `IRMS GCAS: ${data.IRMSGCAS}`, style: 'subheader', margin: [25, 0, 10, 0] },
-								{ text: `Prod Date: ${data.prdDate}`, style: 'subheader', margin: [25, 0, 10, 0] }
+								{ text: `Supplier Product: ${data.Supplierproduct}`, style: 'subheader', margin: [15, 0, 10, 0] },
+								{ text: `IRMS GCAS: ${data.IRMSGCAS}`, style: 'subheader', margin: [15, 0, 10, 0] },
+								{ text: `Prod Date: ${data.prdDate}`, style: 'subheader', margin: [15, 0, 10, 0] }
 							]
 						],
 						[
@@ -225,38 +286,53 @@ function formatPDFWithData(data) {
 							
 						],
 
-						[
-							[
-								{ text: `ROLL Dia(MM):      ROLLS(BLK)(MM):   ${data.ROLLDIAMETER}               				   ${data.quantity4} `, style: 'subheader' },
-							],
-							[
-								{ text:`SPLICES:          BASIS WEIGHT(GSM):           ${data.quantity5}                   				   ${data.BASISWEIGHT} `, style: 'subheader' },
-							],
+						//[
+							//[
+								//{ text: `ROLL Dia(MM):      ROLLS(BLK)(MM):   ${data.ROLLDIAMETER}               				   ${data.quantity4} `, style: 'subheader' },
+							//],
+							//[
+								//{ text:`SPLICES:          BASIS WEIGHT(GSM):           ${data.quantity5}                   				   ${data.BASISWEIGHT} `, style: 'subheader' },
+							//],
 							
-						],
+						//],
 
 						[
 							[
 								{ text: `IRMS GCAS#: ${data.IRMSGCAS}`, style: 'subheader' },
 							],
+							//[
+							//	{ text: `QUANTITY: ${data.quantity} ${data.manROLLSBLOCKS}`, style: 'subheader' },
+							//]
 							[
-								{ text: `QUANTITY: ${data.quantity} ${data.manROLLSBLOCKS}`, style: 'subheader' },
+								{ text: `LOT#: AHNL${data.lotNumber}`, style: 'subheader' },
+							],
+						],
+						//[
+						//	[
+						//		{ text: `LOT#: AHNL${data.lotNumber}`, style: 'subheader' },
+						//	],
+						//	[
+						//		{ text: `PO: ${data.PO}`, style: 'subheader' },
+						//	]
+						//],
+						[
+							
+							[
+								{ text:`QUANTITY (M2):    	   ${data.quantity} `, style: 'subheader' },
+							],
+							[
+								{ text: `Sequence Number: ${data.quantity4}`, style: 'subheader' },
 							]
 						],
 						[
+							//[
+							//	{ text: `CUSTOMER REF.: `, style: 'subheader' },
+							//],
 							[
-								{ text: `LOT#: SHFL${data.lotNumber}`, style: 'subheader' },
+								{ text:`BASIS WEIGHT (GSM):    	   ${data.PO} `, style: 'subheader' },
 							],
 							[
-								{ text: `PO: ${data.PO}`, style: 'subheader' },
-							]
-						],
-						[
-							[
-								{ text: `CUSTOMER REF.: `, style: 'subheader' },
-							],
-							[
-								{ text: `PALLETS / BUNDLE : ${data.quantity6}`, style: 'subheader' },
+								{ text: `PALLET TYPE : ${data.quantity6}`, style: 'subheader' },
 							]
 						],
 						[
@@ -287,6 +363,11 @@ function formatPDFWithData(data) {
 				fontSize: 14,
 				bold: true,
 				margin: [0, 0, 0, 10]
+			},
+			subheader_title: {
+				fontSize: 10,
+				bold: true,
+				margin: [5, 10, 0, 5]
 			},
 			subheader: {
 				fontSize: 12,
