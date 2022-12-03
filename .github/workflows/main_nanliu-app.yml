@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'nanliu-app'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_24D336C3C05D44C1B679EB51E601026E }}
+          publish-profile: ${{ secrets.NEW_SECRET }}
           package: .
