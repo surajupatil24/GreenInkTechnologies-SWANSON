@@ -6,6 +6,9 @@ const pdfMakePrinter = require('pdfmake/src/printer');
 const JsBarcode = require('jsbarcode');
 const { Canvas } = require("canvas");
 
+const {createCanvas, loadImage} = require('canvas');
+
+
 const path = require('path');
 
 /* GET home page. */
@@ -166,12 +169,17 @@ var odd = 0;
 					dataFormated.rowImage1 = {png:image1, number: row1Text};
 					dataFormated.rowImage2 = {png:image2, number: row2Text};
 					dataFormated.rowImage3 = {png:image3, number: row3Text};
-				
-					generatePdf(formatPDFWithData(filtered[0]), cb => {
-						res.contentType("application/pdf");
-						res.send(cb);
+
+					GetImageFromURL( __dirname+"/../public/images/left_arrow.jpg", {width:425,height:269}).then(leftimageData =>{
+						
+						dataFormated.leftArrowImage = leftimageData;
+
+						generatePdf(formatPDFWithData(filtered[0]), cb => {
+							res.contentType("application/pdf");
+							res.send(cb);
+						});
 					});
-			
+							
 				}).catch(error =>
 					{});
 			}).catch(err =>{});
@@ -202,6 +210,25 @@ router.post('/login', (req, res) => {
 		res.status(401).render('home');
 	}
 });
+
+function GetImageFromURL(url, size){
+	return new Promise((resolve, reject)=>{
+
+		loadImage(url).then(image1 => {
+		const canvasimg =  createCanvas(size.width, size.height);
+		let ctx =  canvasimg.getContext('2d');
+		ctx.drawImage(image1,0,0);
+		canvasimg.toDataURL((err, png) => { 
+			if(err){
+				reject(err)
+			}
+			else{
+				resolve(png);
+			}
+		});
+	})
+	})
+}
 
 function generatePdf(docDefinition, callback) {
 
@@ -274,7 +301,12 @@ function formatPDFWithData(data) {
 							]
 						],
 						[
-							{ text: `ITEM: ${data.MaterialDescription}`, style: 'subheader', color: 'black', align: 'right', colSpan: 2 },
+							(data.IRMSGCAS == "90415042") ?
+							{stack:[
+								{ text:  `ITEM: ${data.MaterialDescription} `, style: 'subheader', color: 'black', align: 'right', colSpan: 2 ,  margin: [0, 15, 00, 0]},
+								{ image: data.leftArrowImage, width:40, height: 15, margin: [290, -15, 0, 0]},
+							], colSpan:2, margin: [30, -5, 0, 10] } :
+							{ text: `ITEM: ${data.MaterialDescription}`, style: 'subheader', color: 'black', align: 'right', colSpan: 2 }
 						],
 						[
 							[
@@ -283,18 +315,7 @@ function formatPDFWithData(data) {
 							[
 								{ text:`GROSS wt.(KG):          NET wt.(KG):           ${data.quantity2}                   				   ${data.quantity3}`, style: 'subheader' },
 							],
-							
 						],
-
-						//[
-							//[
-								//{ text: `ROLL Dia(MM):      ROLLS(BLK)(MM):   ${data.ROLLDIAMETER}               				   ${data.quantity4} `, style: 'subheader' },
-							//],
-							//[
-								//{ text:`SPLICES:          BASIS WEIGHT(GSM):           ${data.quantity5}                   				   ${data.BASISWEIGHT} `, style: 'subheader' },
-							//],
-							
-						//],
 
 						[
 							[
