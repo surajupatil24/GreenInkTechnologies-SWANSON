@@ -27,7 +27,6 @@ jobs:
             })
 
             res.data.artifacts
-              .filter(({ name }) => name === 'package')
               .forEach(({ id }) => {
                 github.rest.actions.deleteArtifact({
                   owner: context.repo.owner,
