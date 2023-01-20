@@ -54,3 +54,6 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.NEW_SECRET }}
           package: .
+      
+      - name: Delete Artifact
+        uses: GeekyEggo/delete-artifact@v2.0.0
