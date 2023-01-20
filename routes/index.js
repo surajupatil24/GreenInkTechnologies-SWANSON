@@ -9,7 +9,7 @@ const { Canvas } = require("canvas");
 const {createCanvas, loadImage} = require('canvas');
 
 
-const path = require('path');
+const path = require('path'); 
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
