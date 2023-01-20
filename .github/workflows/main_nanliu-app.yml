@@ -10,6 +10,16 @@ on:
   workflow_dispatch:
 
 jobs:
+  remove-old-artifacts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+    - name: Remove old artifacts
+      uses: c-hive/gha-remove-artifacts@v1
+      with:
+        age: '90 seconds'
+
   build:
     runs-on: ubuntu-latest
 
