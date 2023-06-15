@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'GreenInkTechnologies-SWANSON'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4CF4E3E1C8F340E98C0E7AD02ACFE8AB }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FD4B17C9CFC94250800643F5DF7D6EBC }}
           package: .
