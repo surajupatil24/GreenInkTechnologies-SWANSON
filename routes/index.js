@@ -148,11 +148,11 @@ var odd = 0;
 		const dataFormated = filtered[0];
 
 		const row1Text = `(91) ${dataFormated.IRMSGCAS}(37)${quantity}`;
-		const row2Text = `(10)AHNL${batch}~(90)${quantity6}`;
+		const row2Text = `(10)SWIN${batch}~(90)${quantity6}`;
 		const row3Text = `(00) 1 1534145 ${quantity4} ${step5}`;
 
 		GenerateBarCodeForNumber(`91${dataFormated.IRMSGCAS}37${quantity}`).then(image1=>{
-			GenerateBarCodeForNumber(`10AHNL${batch}90${quantity6}`).then(image2=>{
+			GenerateBarCodeForNumber(`10SWIN${batch}90${quantity6}`).then(image2=>{
 				GenerateBarCodeForNumber(`0011534145${quantity4}${step5}`).then(image3=>{
 					
 					dataFormated.lotNumber = batch;
@@ -325,7 +325,7 @@ function formatPDFWithData(data) {
 							//	{ text: `QUANTITY: ${data.quantity} ${data.manROLLSBLOCKS}`, style: 'subheader' },
 							//]
 							[
-								{ text: `LOT#: AHNL${data.lotNumber}`, style: 'subheader' },
+								{ text: `LOT#: SWIN${data.lotNumber}`, style: 'subheader' },
 							],
 						],
 						//[
