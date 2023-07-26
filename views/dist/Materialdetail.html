@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Green Ink Technologies/Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- ===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon01.ico">
+    <!-- ===============================================================================================-->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="stylesheets/labelPrint.css">
+  </head>
+</html>
+<div class="container contact">
+  <div class="row">
+    <div class="col-md-3"><a href="#"></a><img src="images/SP1.png" alt="" style="max-width: 100%;height: auto;">
+      <div class="contact-info">  
+        <h2>Label Print</h2>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <form action="generatepdf" method="POST">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="fname" class="control-label">Name:</label><br>
+              <select name="subject" class="option">
+                <option disabled="disabled" selected="selected">FG BIG LABEL</option>
+                <option>FG SMALL LABEL</option>
+                <option>FG BOTH LABEL</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="fname" class="control-label">IRMS/GCAS:            </label>
+              <input type="text" name="material" id="material" class="firstname">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="lname" class="control-label">LOT No:</label>
+              <input type="text" name="batch" id="batch" class="lastname">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="email" class="control-label">BASIS WEIGHT:          </label>
+              <input type="text" name="PO" id="PO" class="firstname">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="email" class="control-label">Quantity:          </label>
+              <input type="text" name="quantity" id="quantity" class="lastname">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="email" class="control-label">Production Date:          </label>
+              <input type="date" name="prdDate" id="prdDate" class="company">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="email" class="control-label">Height:          </label>
+              <input type="text" name="quantity1" id="quantity1" class="firstname1">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="email" class="control-label">Gross Weight:          </label>
+              <input type="text" name="quantity2" id="quantity2" class="firstname2">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="email" class="control-label">Net Weight:          </label>
+              <input type="text" name="quantity3" id="quantity3" class="lastname2">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="email" class="control-label">Sequence Number:</label>
+              <input type="text" name="quantity4" id="quantity4" class="lastname1">
+            </div>
+          </div>
+          <!--.col-md-4
+          .form-group
+            label.control-label(for='email') Splices:
+            input.firstname3(type='text', name='quantity5', id="quantity5")
+          -->
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="email" class="control-label">PI Number:</label>
+              <input type="text" name="quantity7" id="quantity7" class="firstname3">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="email" class="control-label">Pallet Number:</label>
+              <input type="text" name="quantity8" id="quantity8" class="firstname3">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="email" class="control-label">PALLET TTYPE:</label>
+              <input type="text" name="quantity6" id="quantity6" class="firstname3">
+            </div>
+          </div>
+        </div>
+        <div class="sidebar">
+          <div class="icon1"><a href="go">             <img src="https://img.icons8.com/carbon-copy/100/000000/print.png" style="width: 86px;margin-left: -14px; margin-top: 50px"></a></div>
+          <div class="icon2">   <a href="GoodsReceive"><img src="https://img.icons8.com/dotty/100/000000/delivery.png" style="width: 68px;margin-left: -8px; margin-top: 50px"></a></div>
+          <div class="icon3">   <a href="Support">            <img src="https://img.icons8.com/carbon-copy/100/000000/online-support--v1.png" alt="Support" style="width: 86px;margin-left: -18px; margin-top: 50px"></a></div>
+        </div>
+        <div class="form-group col-md-12 row">
+          <div class="col-sm-offset-2 col-md-6">
+            <button type="submit" class="btn btn-success btn-md">Submit</button>
+          </div>
+          <!--.col-md-6
+          a(href="Support")
+            img(src='https://img.icons8.com/carbon-copy/100/000000/online-support--v1.png' style="width:72px; height:70px;margin-left: 285px;margin-top: -12px;")    
+          -->
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

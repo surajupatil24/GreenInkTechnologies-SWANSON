@@ -103,6 +103,7 @@ router.post('/generatepdf', function (req, res, next) {
 	const quantity5 = req.body.quantity5;
 	const quantity6 = req.body.quantity6;
 	const quantity7 = req.body.quantity7;
+	const quantity8 = req.body.quantity8;
 
 	var workbook = XLSX.readFile(__dirname + '/Plant_001_masterdata.xlsx');
 	//var workbook = XLSX.readFile(__dirname + '/My First Project-087f0a546d01.json');
@@ -165,6 +166,7 @@ var odd = 0;
 					dataFormated.quantity5 = quantity5;
 					dataFormated.quantity6 = quantity6;
 					dataFormated.quantity7 = quantity7;
+					dataFormated.quantity8 = quantity8;
 					dataFormated.PO = PO;
 					dataFormated.rowImage1 = {png:image1, number: row1Text};
 					dataFormated.rowImage2 = {png:image2, number: row2Text};
@@ -336,6 +338,16 @@ function formatPDFWithData(data) {
 						//		{ text: `PO: ${data.PO}`, style: 'subheader' },
 						//	]
 						//],
+						[
+							
+							[
+								{ text:`PI Number:  ${data.quantity7} `, style: 'subheader' },
+							],
+							[
+								{ text: `Pallet Number: ${data.quantity8}`, style: 'subheader' },
+							]
+						],
+						
 						[
 							
 							[
