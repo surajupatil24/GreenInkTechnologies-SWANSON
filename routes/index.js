@@ -148,6 +148,12 @@ var odd = 0;
 
 		const dataFormated = filtered[0];
 
+		if(req.body.quantity != undefined){
+			dataFormated.NETWT = dataFormated.NETWT * req.body.quantity;
+		}
+
+		dataFormated.NETWT = dataFormated.NETWT.toFixed(2);
+
 		const row1Text = `(91) ${dataFormated.IRMSGCAS}(37)${quantity}`;
 		const row2Text = `(10)SWIN${batch}~(90)${quantity6}`;
 		const row3Text = `(00) 1 1534145 ${quantity4} ${step5}`;
@@ -305,7 +311,7 @@ function formatPDFWithData(data) {
 						[
 							(data.IRMSGCAS == "90415042") ?
 							{stack:[
-								{ text:  `ITEM: ${data.MaterialDescription} `, style: 'subheader', color: 'black', align: 'right', colSpan: 2 ,  margin: [0, 15, 00, 0]},
+								{ text:  `ITEM: ${data.MaterialDescription} `, style: 'subheader', color: 'black', align: 'right', colSpan: 2 ,  margin: [0, 15, 0, 0]},
 								{ image: data.leftArrowImage, width:40, height: 15, margin: [290, -15, 0, 0]},
 							], colSpan:2, margin: [30, -5, 0, 10] } :
 							{ text: `ITEM: ${data.MaterialDescription}`, style: 'subheader', color: 'black', align: 'right', colSpan: 2 }
@@ -315,7 +321,7 @@ function formatPDFWithData(data) {
 								{ text: `WIDTH (MM):                 HEIGHT (MM):          ${data.WIDTH}                   				   ${data.quantity1} `, style: 'subheader' },
 							],
 							[
-								{ text:`GROSS wt.(KG):          NET wt.(KG):           ${data.quantity2}                   				   ${data.Netwt}`, style: 'subheader' },
+								{ text:`GROSS wt.(KG):          NET wt.(KG):           ${data.quantity2}                   				   ${data.NETWT}`, style: 'subheader' },
 							],
 						],
 
