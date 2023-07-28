@@ -315,7 +315,7 @@ function formatPDFWithData(data) {
 								{ text: `WIDTH (MM):                 HEIGHT (MM):          ${data.WIDTH}                   				   ${data.quantity1} `, style: 'subheader' },
 							],
 							[
-								{ text:`GROSS wt.(KG):          NET wt.(KG):           ${data.quantity2}                   				   ${data.quantity3}`, style: 'subheader' },
+								{ text:`GROSS wt.(KG):          NET wt.(KG):           ${data.quantity2}                   				   ${data.Netwt}`, style: 'subheader' },
 							],
 						],
 
@@ -351,7 +351,7 @@ function formatPDFWithData(data) {
 						[
 							
 							[
-								{ text:`QUANTITY (M2):    	   ${data.quantity} `, style: 'subheader' },
+								{ text:`QUANTITY (Rolls):    	   ${data.quantity} `, style: 'subheader' },
 							],
 							[
 								{ text: `Sequence Number: ${data.quantity4}`, style: 'subheader' },
