@@ -350,7 +350,7 @@ function formatPDFWithData(data) {
 								{ text:`PI Number:  ${data.quantity7} `, style: 'subheader' },
 							],
 							[
-								{ text: `Pallet Number: ${data.quantity8}`, style: 'subheader' },
+								{ text: `Pallet Number: ${data.quantity8} / (${data.quantity} Rolls) `, style: 'subheader' },
 							]
 						],
 						
