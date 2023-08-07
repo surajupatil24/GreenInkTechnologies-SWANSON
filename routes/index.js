@@ -356,8 +356,11 @@ function formatPDFWithData(data) {
 						
 						[
 							
+						//	[
+						//		{ text:`QUANTITY (KG):    	   ${data.quantity} `, style: 'subheader' },
+						//	],
 							[
-								{ text:`QUANTITY (Rolls):    	   ${data.quantity} `, style: 'subheader' },
+								{ text:`QUANTITY (KG):    ${data.NETWT} `, style: 'subheader' },
 							],
 							[
 								{ text: `Sequence Number: ${data.quantity4}`, style: 'subheader' },
