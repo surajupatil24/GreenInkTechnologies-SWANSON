@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const XLSX = require('xlsx')
+const { format } = require('date-fns');
+
 const pdfMakePrinter = require('pdfmake/src/printer');
 
 const JsBarcode = require('jsbarcode');
@@ -94,7 +96,7 @@ router.post('/generatepdf', function (req, res, next) {
 	const material = req.body.material;
 	const PO = req.body.PO;
 	const batch = req.body.batch;
-	const prdDate = req.body.prdDate;
+	let prdDate = req.body.prdDate;
 	const quantity = req.body.quantity;
 	const quantity1 = req.body.quantity1;
 	const quantity2 = req.body.quantity2;
@@ -104,6 +106,10 @@ router.post('/generatepdf', function (req, res, next) {
 	const quantity6 = req.body.quantity6;
 	const quantity7 = req.body.quantity7;
 	const quantity8 = req.body.quantity8;
+
+	if(prdDate){
+		prdDate = format(new Date(prdDate), 'dd-MMM-yyyy');
+	}
 
 	var workbook = XLSX.readFile(__dirname + '/Plant_001_masterdata.xlsx');
 	//var workbook = XLSX.readFile(__dirname + '/My First Project-087f0a546d01.json');
@@ -154,11 +160,11 @@ var odd = 0;
 
 		dataFormated.NETWT = dataFormated.NETWT.toFixed(2);
 
-		const row1Text = `(91) ${dataFormated.IRMSGCAS}(37)${quantity}`;
+		const row1Text = `(91) ${dataFormated.IRMSGCAS}(37)${dataFormated.NETWT}`;
 		const row2Text = `(10)SWIN${batch}~(90)${quantity6}`;
 		const row3Text = `(00) 1 1534145 ${quantity4} ${step5}`;
 
-		GenerateBarCodeForNumber(`91${dataFormated.IRMSGCAS}37${quantity}`).then(image1=>{
+		GenerateBarCodeForNumber(`91${dataFormated.IRMSGCAS}37${dataFormated.NETWT}`).then(image1=>{
 			GenerateBarCodeForNumber(`10SWIN${batch}90${quantity6}`).then(image2=>{
 				GenerateBarCodeForNumber(`0011534145${quantity4}${step5}`).then(image3=>{
 					
