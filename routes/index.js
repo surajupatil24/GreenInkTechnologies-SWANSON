@@ -160,11 +160,11 @@ var odd = 0;
 
 		dataFormated.NETWT = dataFormated.NETWT.toFixed(2);
 
-		const row1Text = `(91) ${dataFormated.IRMSGCAS}(37)${dataFormated.quantity}`;
+		const row1Text = `(91) ${dataFormated.IRMSGCAS}(37)${quantity}`;
 		const row2Text = `(10)SWIN${batch}~(90)${quantity6}`;
 		const row3Text = `(00) 1 1534145 ${quantity4} ${step5}`;
 
-		GenerateBarCodeForNumber(`91${dataFormated.IRMSGCAS}37${dataFormated.quantity}`).then(image1=>{
+		GenerateBarCodeForNumber(`91${dataFormated.IRMSGCAS}37${quantity}`).then(image1=>{
 			GenerateBarCodeForNumber(`10SWIN${batch}90${quantity6}`).then(image2=>{
 				GenerateBarCodeForNumber(`0011534145${quantity4}${step5}`).then(image3=>{
 					
