@@ -107,9 +107,9 @@ router.post('/generatepdf', function (req, res, next) {
 	const quantity7 = req.body.quantity7;
 	const quantity8 = req.body.quantity8;
 
-	//if(prdDate){
-	//	prdDate = format(new Date(prdDate), 'dd-MMM-yyyy');
-	//}
+	if(prdDate){
+		prdDate = format(new Date(prdDate), 'dd-MMM-yyyy');
+	}
 
 	var workbook = XLSX.readFile(__dirname + '/Plant_001_masterdata.xlsx');
 	//var workbook = XLSX.readFile(__dirname + '/My First Project-087f0a546d01.json');
@@ -160,11 +160,11 @@ var odd = 0;
 
 		dataFormated.NETWT = dataFormated.NETWT.toFixed(2);
 
-		const row1Text = `(91) ${dataFormated.IRMSGCAS}(37)${quantity}`;
+		const row1Text = `(91) ${dataFormated.IRMSGCAS}(37)${dataFormated.NETWT}`;
 		const row2Text = `(10)SWIN${batch}~(90)${quantity6}`;
 		const row3Text = `(00) 1 1534145 ${quantity4} ${step5}`;
 
-		GenerateBarCodeForNumber(`91${dataFormated.IRMSGCAS}37${quantity}`).then(image1=>{
+		GenerateBarCodeForNumber(`91${dataFormated.IRMSGCAS}37${dataFormated.NETWT}`).then(image1=>{
 			GenerateBarCodeForNumber(`10SWIN${batch}90${quantity6}`).then(image2=>{
 				GenerateBarCodeForNumber(`0011534145${quantity4}${step5}`).then(image3=>{
 					
@@ -385,19 +385,23 @@ function formatPDFWithData(data) {
 						],
 						[
 							{stack:[
+								
 								{ image: data.rowImage1.png, width: 200, height: 65},
+								{ text: `GCAS/ Net wt. `, style: 'subheaderbarcode' },
 								{ text: data.rowImage1.number, style: 'subheader', margin: [10, 0, 10, 0] }
 							], colSpan:2, margin: [100, 0, 10, 0] }
 						],
 						[
 							{stack:[
 								{ image: data.rowImage2.png, width: 200, height: 65},
+								{ text: `Lot No. `, style: 'subheaderbarcode' },
 								{ text: data.rowImage2.number, style: 'subheader', margin: [10, 0, 10, 0] }
 							], colSpan:2, margin: [100, 0, 10, 0] }
 						],
 						[
 							{stack:[
 								{ image: data.rowImage3.png, width: 200, height: 65},
+								{ text: `Unit Load ID `, style: 'subheaderbarcode' },
 								{ text: data.rowImage3.number, style: 'subheader', margin: [10, 0, 10, 0] }
 							], colSpan:2, margin: [100, 0, 10, 0] }
 						],
@@ -421,6 +425,11 @@ function formatPDFWithData(data) {
 				fontSize: 12,
 				bold: true,
 				margin: [0, 10, 0, 5]
+			},
+			subheaderbarcode: {
+				fontSize: 16,
+				bold: true,
+				margin: [-100, -20, 10, -5]
 			},
 			tableExample: {
 				margin: [0, 0, 0, -10]
