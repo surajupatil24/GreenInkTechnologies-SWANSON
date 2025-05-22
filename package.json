@@ -3,22 +3,21 @@
   "version": "0.0.0",
   "private": true,
   "engines": {
-    "node": "18.9.0"
+    "node": "22.13.1"
   },
   "scripts": {
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "canvas": "^2.6.1",
-    "cookie-parser": "~1.4.4",
-    "date-fns": "^2.30.0",
+    "canvas": "^3.1.0",
+    "cookie-parser": "~1.4.7",
     "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
+    "express": "~4.18.2",
+    "http-errors": "~1.8.1",
     "jade": "^1.9.2",
     "jsbarcode": "^3.11.0",
-    "morgan": "~1.9.1",
+    "morgan": "~1.10.0",
     "pdfmake": "^0.1.65",
-    "xlsx": "^0.18.4"
+    "xlsx": "^0.18.5"
   }
 }
